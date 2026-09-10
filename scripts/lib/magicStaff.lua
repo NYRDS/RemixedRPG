@@ -160,3 +160,4 @@ local magicStaff ={}
     execute = function(self, item, hero, action)
     end
 }
+end

@@ -10,8 +10,8 @@ return mob.init{
 attackProc = function(self, enemy, dmg) -- melee attack
 if math.random(1,1) == 1 then
 blinkTo = function(mob, target)
-        wandOfBlink:mobWandUse(mob, )
-    end,
+        wandOfBlink:mobWandUse(mob, target)
+    end
 end
         return dmg
     end,
