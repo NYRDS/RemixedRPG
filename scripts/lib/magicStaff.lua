@@ -1,7 +1,7 @@
 --
 --Created by Mongol
 -- VK: mongolinsult
--- 
+--
 
 local RPD = require "scripts/lib/commonClasses"
 
@@ -61,26 +61,26 @@ local magicStaff ={}
         return info..RPD.textById("WeaponLimit")
       end
     end,
-    
+
     getAttackAnimationClass = function()
     return "STAFF"
     end,
-    
+
     blockSlot = function()
       return "LEFT_HAND"
     end,
-    
+
     damageRoll = function(self, item, user)
         return maxDmg+item:level()+math.ceil(RPG.magStr()*attackBonus),minDmg+item:level()+math.ceil(RPG.magStr()*attackBonus)
     end,
-    
+
     activate = function(self,item,user)
       hero = RPD.Dungeon.hero
       str = math.max(stra-2*item:level(),1)
       for i = 1, self.data.level - str do
         self.data.dstats[5] = self.data.dstats[5] + magAsLevel
       end
-      
+
       self.data.level = str
       if self.data.activationCount == 0 and user == hero then
           RPG.addStats(self.data.dstats,"StatsA")
@@ -92,7 +92,7 @@ local magicStaff ={}
       end
       self.data.activationCount = 1
     end,
-    
+
     deactivate = function(self,item)
       hero = RPD.Dungeon.hero
         self.data.activationCount = 0
@@ -106,53 +106,53 @@ local magicStaff ={}
           hero:setSkillPoints(hero:getSkillPointsMax())
         end
     end,
-    
+
     goodForMelee = function()
       return true
     end,
-    
+
     range = function()
       return 3
     end,
-    
+
     onSelect = function(cell,selector)
     end,
-    
+
     accuracyFactor = function(self,item,user)
      str = math.max(stra-2*item:level(),1)
      return 1 + RPG.itemStrBonus(str)
     end,
-    
+
     attackDelayFactor = function(self,item,user)
      str = math.max(stra-2*item:level(),1)
      return 1 - RPG.itemStrBonus(str)
     end,
-    
+
     typicalSTR = function(self,item,user)
       str = math.max(stra-2*item:level(),1)
 	  return str
     end,
-    
+
     requiredSTR = function(self,item,user)
       return str
     end,
-    
-    
+
+
     statsRequirementsSatisfied = function(self,item)
       str = math.max(stra-2*item:level(),1)
       if str <= RPG.physStr() then
-        return true 
-      else 
+        return true
+      else
         return false
       end
     end,
-    
-    
+
+
     attackProc = function(self,item,hero,enemy,dmg)
       local hero = RPD.Dungeon.hero
       return dmg
     end,
-    
+
     actions = function(self, item, hero)
      return {}
     end,

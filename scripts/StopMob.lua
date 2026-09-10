@@ -5,7 +5,7 @@ local mob = require"scripts/lib/mob"
 
 
 return mob.init{
-  
+
 
 attackProc = function(self, enemy, dmg) -- melee attack
 if math.random(1,1) == 1 then
@@ -15,9 +15,9 @@ blinkTo = function(mob, target)
 end
         return dmg
     end,
-    
+
 zapProc = function(self, enemy, dmg) -- ranged attack
-       return dmg 
+       return dmg
     end
 
 }
