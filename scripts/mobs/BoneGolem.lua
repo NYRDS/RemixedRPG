@@ -12,7 +12,7 @@ local mob = require"scripts/lib/mob"
 
 return mob.init{
 
-        
+
   die = function(enemy, self, cell, dmg)
     local Spell = storage.gameGet(a) or {}
           storage.gamePut(a,{exp = Spell.exp, expMax = Spell.expMax, lvl = Spell.lvl, summon = Spell.summon-1, summonMax = Spell.summonMax})

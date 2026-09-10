@@ -43,12 +43,12 @@ return spell.init{
     castOnCell = function(self, spell, chr, cell)
     local hero = RPD.Dungeon.hero
     Count = storage.gameGet(a) or {}
-	
+
 	 if RPD.Dungeon.hero:lvl() <= 4 then
      RPD.glog(RPD.textById("LvlLimit"))
      return false
     end
-	
+
     if Count.lvl ~= nil then
      lvl = Count.lvl
      exp = Count.exp

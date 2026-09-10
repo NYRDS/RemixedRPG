@@ -67,7 +67,7 @@ return spell.init{
      expMax = 4
      storage.gamePut(a,{exp = exp, expMax = expMax, lvl = lvl})
     end
-     local duration = 3+2*lvl 
+     local duration = 3+2*lvl
 
         if hero:visibleEnemies() > 0 then
             RPD.glogn("-- "..RPD.textById("DisguiseLimit"))

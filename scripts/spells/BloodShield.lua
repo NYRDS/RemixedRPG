@@ -62,7 +62,7 @@ return spell.init{
      expMax = 4
      storage.gamePut(a,{exp = exp, expMax = expMax, lvl = lvl})
     end
-    
+
      RPD.affectBuff(RPD.Dungeon.hero,"BloodShieldBuff",2+lvl)
  return true
    end

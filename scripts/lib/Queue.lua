@@ -6,29 +6,29 @@ local Que = {
   local mas = {}
   storage.gamePut(name, {mas = mas,size = 0})
  end,
- 
+
  pushMas = function(name,mas)
   local Que = storage.gameGet(name) or {}
   storage.gamePut(name,{mas = mas,size = #mas+1})
  end,
- 
+
  push = function(name,count)
   local Que = storage.gameGet(name) or {}
   local mas = Que.mas
   mas[Que.size] = count
   storage.gamePut(name,{mas = mas,size = Que.size+1})
  end,
- 
+
  clear = function(name)
  local mas = {}
   storage.gamePut(name,{mas = mas,size = 0})
  end,
- 
+
  getMas = function(name)
   local Que = storage.gameGet(name) or {}
   return Que.mas
  end,
- 
+
  getD = function(name)
   local Que = storage.gameGet(name) or {}
   local a = 0

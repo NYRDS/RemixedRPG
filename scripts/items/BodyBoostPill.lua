@@ -1,7 +1,7 @@
 --
 --Created by Mongol
 -- VK: mongolinsult
--- 
+--
 
 local RPD = require "scripts/lib/commonClasses"
 
@@ -14,7 +14,7 @@ local item = require "scripts/lib/item"
 local storage = require "scripts/lib/storage"
 
 local tier = 1
-local tierN = 
+local tierN =
 {
 "общего",
 "земного",
@@ -35,16 +35,16 @@ return item.init{
             upgradable = false,
             stackable = true,
             defaultAction = "СЪЕСТЬ"
-            
+
         }
     end,
-  
+
 activate = function(self, item, hero)
     end,
-    
+
 deactivate = function(self, item, hero)
  end,
- 
+
 actions = function(self, item, hero)
 return {"СЪЕСТЬ"}
 end,
@@ -58,7 +58,7 @@ end,
 :getItem("BodyBoostPill"):detach(item:getUser():getBelongings()
 .backpack)
       end
-      
+
       RPG.physicStr = RPG.physicStr +tier
       RPG.fast = RPG.fast +tier
       storage.gamePut("", {str = RPG.strength, int = RPG.intelligence, dex = RPG.dexterity, vit = RPG.vitality, wis = RPG.wisdom, luc = RPG.luck, lvlT = RPG.lvlToUp, magS = RPG.magicStr, phyS = RPG.physicStr, fast = RPG.fast, sP = RPG.sPoints, spR = RPG.spRegen, class = RPG.class, subclass = RPG.subclass})

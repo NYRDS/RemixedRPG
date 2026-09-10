@@ -45,7 +45,7 @@ return spell.init{
      RPD.glog(RPD.textById("LvlLimit"))
      return false
     end
-    
+
     Count = storage.gameGet(a) or {}
     if Count.lvl ~= nil then
      lvl = Count.lvl

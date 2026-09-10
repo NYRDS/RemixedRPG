@@ -77,7 +77,7 @@ return spell.init{
      RPD.affectBuff(enemy,RPD.Buffs.Amok,2+lvl)
       end
      end
-    end 
+    end
   return true
    end
 }

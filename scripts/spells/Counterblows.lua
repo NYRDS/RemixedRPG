@@ -43,7 +43,7 @@ return spell.init{
     end,
     cast = function(self, spell, chr, cell)
     hero = RPD.Dungeon.hero
-    
+
     if RPD.Dungeon.hero:lvl() <= 4 then
      RPD.glog(RPD.textById("LvlLimit"))
      return false
@@ -52,7 +52,7 @@ return spell.init{
       RPD.glog(RPD.textById("SubclassLimit"))
       return false
     end
-    
+
     Count = storage.gameGet(a) or {}
     if Count.lvl ~= nil then
      lvl = Count.lvl

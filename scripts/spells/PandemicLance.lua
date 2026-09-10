@@ -45,7 +45,7 @@ return spell.init{
             castTime      = 1
         }
     end,
-    
+
     castOnCell = function(self, spell, chr, cell, caster)
     local level = RPD.Dungeon.level
     local hero = RPD.Dungeon.hero
@@ -53,7 +53,7 @@ return spell.init{
      RPD.glog(RPD.textById("LvlLimit"))
      return false
     end
-      
+
     Count = storage.gameGet(a) or {}
     Spell = storage.gameGet("bloodspikes") or {}
     if Count.lvl ~= nil then
@@ -67,7 +67,7 @@ return spell.init{
      expMax = 4
      storage.gamePut(a,{exp = exp, expMax = expMax, lvl = lvl})
     end
-    
+
     if exp == expMax then
        exp = 0
        expMax = expMax+5
@@ -75,7 +75,7 @@ return spell.init{
      else
        exp = exp+1
      end
-     
+
     RPD.removeBuff(hero,"BloodPoisoning")
     local heroPos = hero:getPos()
     pos = RPD.Ballistica:cast(heroPos,cell,true,false,false)

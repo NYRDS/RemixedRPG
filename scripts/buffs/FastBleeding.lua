@@ -19,7 +19,7 @@ return buff.init{
             info          = ""
         }
     end,
-    
+
     charAct = function(self,buff)
       RPD.topEffect(buff.target:getPos(),"bleeding_effect")
       RPG.damage(buff.target,buff:level(),type,elmnt)

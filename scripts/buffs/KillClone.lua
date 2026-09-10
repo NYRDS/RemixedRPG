@@ -16,7 +16,7 @@ return buff.init{
             info          = "",
         }
     end,
-    
+
     detach = function(self,buff)
      buff.target:die(buff.target)
     end

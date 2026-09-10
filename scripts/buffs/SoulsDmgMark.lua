@@ -23,10 +23,10 @@ return buff.init{
             info          = "",
         }
     end,
-    
+
     charAct = function(self,buff)
       local Spell = storage.gameGet(a) or {}
-      for i= 1, buff:level()-1 %2 do 
+      for i= 1, buff:level()-1 %2 do
       RPG.damage(buff.target,RPG.smartInt(0 +2.5*Spell.lvl +RPG.magStr()*0.25 + buff.target:ht()*(0.02+0.01*Spell.lvl)), type,elmnt)
       buff.target:getSprite():showStatus(0xffff00,RPD.textById("torment"))
       buff:level(buff:level()-2)

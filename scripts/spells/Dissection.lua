@@ -44,7 +44,7 @@ return spell.init{
     cast = function(self, spell, chr, cell)
     local level = RPD.Dungeon.level
     local hero = RPD.Dungeon.hero
-    
+
     if RPD.Dungeon.hero:lvl() <= 4 then
      RPD.glog(RPD.textById("LvlLimit"))
      return false
@@ -53,7 +53,7 @@ return spell.init{
       RPD.glog(RPD.textById("SubclassLimit"))
       return false
     end
-    
+
     Count = storage.gameGet(a) or {}
     if Count.lvl ~= nil then
      lvl = Count.lvl
@@ -72,14 +72,14 @@ return spell.init{
      expMax = 4
      storage.gamePut(a,{exp = exp, expMax = expMax, lvl = lvl})
     end
-    
+
     RPD.topEffect(hero:getPos(),"dissection_effect")
-    
+
      local x = level:cellX(hero:getPos())
      local y = level:cellY(hero:getPos())
      local weaponA = hero:getBelongings().weapon
      local weaponB = hero:getBelongings().leftHand
-     
+
      for i = x-1,x+1 do
       for j = y-1,y+1 do
        local pos = level:cell(i,j)

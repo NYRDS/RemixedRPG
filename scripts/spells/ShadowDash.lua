@@ -46,7 +46,7 @@ return spell.init{
             castTime      = 1
         }
     end,
-    
+
     castOnCell = function(self, spell, chr, cell, caster)
     local level = RPD.Dungeon.level
     local hero = RPD.Dungeon.hero
@@ -58,7 +58,7 @@ return spell.init{
       RPD.glog(RPD.textById("SubclassLimit"))
       return false
     end
-    
+
     Count = storage.gameGet(a) or {}
     if Count.lvl ~= nil then
      lvl = Count.lvl
@@ -90,7 +90,7 @@ return spell.init{
      moveTo = cell
     end
     end
-    enemy = RPD.Actor:findChar(moveTo) 
+    enemy = RPD.Actor:findChar(moveTo)
     if enemy and enemy ~= hero then
      RPG.damage(enemy,3*lvl + RPG.smartInt(RPG.physStr()*0.4),type,elmnt)
      RPD.topEffect(moveTo,"bleeding_effect")
@@ -100,7 +100,7 @@ return spell.init{
     end
     hero:getSprite():dash(hero:getPos(),moveTo)
     hero:move(moveTo)
-        
+
     pos = RPD.Ballistica:cast(heroPos,cell,true,false,false)
     for i = 1, RPD.Ballistica.distance do
     if RPD.Ballistica.trace[i] == cell then

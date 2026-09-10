@@ -1,7 +1,7 @@
 --
 --Created by Mongol
 -- VK: mongolinsult
--- 
+--
 
 local RPD = require "scripts/lib/commonClasses"
 
@@ -60,27 +60,27 @@ return item.init{
         return info..RPD.textById("WeaponLimit")
       end
     end,
-    
+
     getAttackAnimationClass = function()
     return "STAFF"
     end,
-    
-    
+
+
     statsRequirementsSatisfied = function(self,item)
       str = math.max(stra - 2*item:level(),1)
       if str <= RPG.physStr() then
-        return true 
-      else 
+        return true
+      else
         return false
       end
     end,
-    
-    
+
+
     blockSlot = function()
       return "LEFT_HAND"
     end,
-    
-    
+
+
     activate = function(self,item,user)
       hero = RPD.Dungeon.hero
       str = math.max(stra-2*item:level(),1)
@@ -90,48 +90,48 @@ return item.init{
       end
       self.data.equipped = 1
     end,
-    
+
     deactivate = function(self,item)
       hero = RPD.Dungeon.hero
         self.data.equipped = 0
           RPG.delStats("StatsA")
           RPG.decreaseHtSp(self.data.dstats)
     end,
-    
-    
+
+
     attackProc = function(self,item,hero,enemy,dmg)
       local hero = RPD.Dungeon.hero
       local dmgRoll = RPG.intRoll((maxDmg+item:level() +RPG.magStr()*attackBonus)*1.25,(minDmg+item:level() +RPG.magStr()*attackBonus)*0.75)
       RPG.damage(enemy,RPG.smartInt(dmgRoll),"mag")
       return 0
     end,
-    
-    
+
+
     damageRoll = function()
       return 0,0
     end,
-    
+
     goodForMelee = function()
       return true
     end,
-    
+
     range = function()
       return 3
     end,
-    
+
     onSelect = function(cell,selector)
     end,
-    
+
     accuracyFactor = function(self,item,user)
      str = math.max(stra-2*item:level(),1)
      return 1 + RPG.itemStrBonus(str)
     end,
-    
+
     attackDelayFactor = function(self,item,user)
      str = math.max(stra-2*item:level(),1)
      return 1 - RPG.itemStrBonus(str)
     end,
-    
+
     typicalSTR = function(self,item,user)
       str = math.max(stra-2*item:level(),1)
       if self.data.level < item:level() then
@@ -145,12 +145,12 @@ return item.init{
       end
 	    return str
     end,
-    
+
     requiredSTR = function(self,item,user)
       return str
     end,
-    
-    
+
+
     actions = function(self, item, hero)
      return {}
     end,

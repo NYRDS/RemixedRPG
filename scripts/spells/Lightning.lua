@@ -44,12 +44,12 @@ return spell.init{
     castOnCell = function(self, spell, chr, cell)
     local level = RPD.Dungeon.level
     local hero = RPD.Dungeon.hero
-    
+
     if RPD.Dungeon.hero:lvl() <= 4 then
      RPD.glog(RPD.textById("LvlLimit"))
      return false
     end
-    
+
     Count = storage.gameGet(a) or {}
     if Count.lvl ~= nil then
      lvl = Count.lvl
@@ -68,12 +68,12 @@ return spell.init{
      expMax = 4
      storage.gamePut(a,{exp = exp, expMax = expMax, lvl = lvl})
     end
-    
+
     if RPG.subclass == "BatleMage" then
       RPD.removeBuff(hero,"ResidualEffect_Buff")
       RPD.affectBuff(hero,"ResidualEffect_Buff",5):level(3)
     end
-    
+
     local pos = RPD.Ballistica:cast(RPD.Dungeon.hero:getPos(),cell,true,true,true)
     local enemy = RPD.Actor:findChar(pos)
     RPD.zapEffect(RPD.Dungeon.hero:getPos(),pos,"Lightning")
@@ -83,7 +83,7 @@ return spell.init{
       RPD.affectBuff(enemy,RPD.Buffs.Paralysis,1)
       local x = level:cellX(enemy:getPos())
       local y = level:cellY(enemy:getPos())
-     
+
       for i = x-1,x+1 do
         for j = y-1,y+1 do
           local pos2 = level:cell(i,j)

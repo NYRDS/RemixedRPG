@@ -44,7 +44,7 @@ return spell.init{
     castOnCell = function(self, spell, chr, cell)
     local level = RPD.Dungeon.level
     local hero = RPD.Dungeon.hero
-    
+
     if RPD.Dungeon.hero:lvl() <= 0 then
      RPD.glog(RPD.textById("LvlLimit"))
      return false
@@ -53,7 +53,7 @@ return spell.init{
       RPD.glog(RPD.textById("DistanceLimit"))
       return false
     end
-    
+
     Count = storage.gameGet(a) or {}
     if Count.lvl ~= nil then
      lvl = Count.lvl
@@ -74,22 +74,22 @@ return spell.init{
     end
 
     local enemy1 = RPD.Actor:findChar(cell)
-    
+
     if enemy1 and enemy1 ~= hero and enemy1:buffLevel("KiMark") == 1 then
       RPD.affectBuff(hero,RPD.Buffs.Invisibility, 4)
     end
-    
+
     if enemy1 and enemy1 ~= RPD.Dungeon.hero then
       RPG.damage(enemy1,math.ceil(RPG.magStr()*0.35 + 0.5*lvl),type,elmnt)
       RPD.affectBuff(enemy1,"KiMark",4)
     end
-    
+
     RPD.topEffect(hero:getPos(),"braidofki1_effect")
     RPD.topEffect(cell,"braidofki2_effect")
-    
+
      local x = level:cellX(hero:getPos())
      local y = level:cellY(hero:getPos())
-     
+
      for i = x-1,x+1 do
       for j = y-1,y+1 do
        local pos = level:cell(i,j)

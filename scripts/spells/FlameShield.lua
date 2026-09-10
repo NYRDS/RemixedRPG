@@ -40,35 +40,35 @@ return spell.init{
         }
     end,
     cast = function(self, spell, chr, cell)
-  
+
     if RPD.Dungeon.hero:lvl() <= 4 then
       RPD.glog(RPD.textById("LvlLimit"))
       return false
     end
-    
+
     Count = storage.gameGet(a) or {}
-  
+
     if Count.lvl ~= nil then
       lvl = Count.lvl
       exp = Count.exp
       expMax = Count.expMax
       exp = exp+1
-   
+
     if exp == expMax then
       exp = 0
       expMax = expMax + 7
       lvl = lvl+1
      end
-   
+
      storage.gamePut(a,{exp = exp, expMax = expMax, lvl = lvl})
-    
+
     else
       lvl = 1
       exp = 0
       expMax = 10
       storage.gamePut(a,{exp = exp, expMax = expMax, lvl = lvl})
     end
-    
+
      RPD.affectBuff(RPD.Dungeon.hero,"FlameShieldBuff",2+lvl)
      RPD.affectBuff(RPD.Dungeon.hero,"FireImmune",(2+lvl)*5)
  return true

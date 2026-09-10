@@ -18,7 +18,7 @@ return buff.init{
             info          = "",
         }
     end,
-    
+
     charAct = function(self,buff)
 	  RPD.removeBuff(buff.target, RPD.Buffs.Roots)
     end

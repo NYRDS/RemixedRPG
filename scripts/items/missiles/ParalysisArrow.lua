@@ -16,16 +16,16 @@ return item.init {
             price = 4,
         }
     end,
-    dmg = function() 
+    dmg = function()
       return {2,4}
     end,
     buff = function()
       return {"Paralysis",1 +RPG.smartInt(RPG.AllLuck()*0.05),1}
     end,
-    isFliesStraight = function() 
+    isFliesStraight = function()
       return true
     end,
-  	bag = function() 
+  	bag = function()
   		return "Quiver"
   	end
 }

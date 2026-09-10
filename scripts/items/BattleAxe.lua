@@ -1,7 +1,7 @@
 --
 --Created by Mongol
 -- VK: mongolinsult
--- 
+--
 
 local RPD = require "scripts/lib/commonClasses"
 
@@ -23,11 +23,11 @@ local minDmg = 6
 local accuracy = 1.5
 local delayFactor = 1
 local range = 1
-local str 
+local str
 local stats
-local hero 
+local hero
 local statsInfo
-local config = twohandWeapon.makeWeapon("BattleAxe","WeaponAccu",stra,minDmg,maxDmg,tier,accuracy,delayFactor,range,"phys","chop","HEAVY") 
+local config = twohandWeapon.makeWeapon("BattleAxe","WeaponAccu",stra,minDmg,maxDmg,tier,accuracy,delayFactor,range,"phys","chop","HEAVY")
 config.desc  = function (self, item)
       local a = RPG.getItemStats(quanStats,statsMax)
       statsInfo = a[1]

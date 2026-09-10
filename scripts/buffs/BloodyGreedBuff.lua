@@ -21,10 +21,10 @@ return buff.init{
             info          = "BloodyGreed_BuffD",
         }
     end,
-    
+
     attackProc = function(self,buff,enemy,damage)
     local Spell = storage.gameGet(a) or {}
-    
+
     buff.target:heal(damage*(0.05+0.12*buff:level()),buff.target)
     return damage
     end

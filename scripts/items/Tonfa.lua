@@ -1,7 +1,7 @@
 --
 --Created by Mongol
 -- VK: mongolinsult
--- 
+--
 
 local RPD = require "scripts/lib/commonClasses"
 
@@ -22,11 +22,11 @@ local maxDmg = 18
 local minDmg = 12
 local accuracy = 1
 local delayFactor = 1
-local str 
+local str
 local stats
-local hero 
+local hero
 local statsInfo
-local config = twohandWeapon.makeWeapon("Tonfa","WeaponCounter",stra,minDmg,maxDmg,tier,accuracy,delayFactor,1,"phys","crush","SWORD") 
+local config = twohandWeapon.makeWeapon("Tonfa","WeaponCounter",stra,minDmg,maxDmg,tier,accuracy,delayFactor,1,"phys","crush","SWORD")
 config.desc  = function(self, item)
       local a = RPG.getItemStats(quanStats,statsMax)
       statsInfo = a[1]
@@ -46,7 +46,7 @@ config.desc  = function(self, item)
             equipable     ="weapon"
         }
     end
-		
+
 		config.activate = function(self,item)
       hero = RPD.Dungeon.hero
 			if hero then
@@ -62,7 +62,7 @@ config.desc  = function(self, item)
       end
       self.data.activationCount = 1
     end
-    
+
     config.deactivate = function(self,item)
       hero = RPD.Dungeon.hero
 			RPD.removeBuff(hero,"TonfsBuff")

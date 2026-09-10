@@ -50,7 +50,7 @@ return spell.init{
       RPD.glog(RPD.textById("SubclassLimit"))
       return false
     end
-    
+
     Count = storage.gameGet(a) or {}
     if Count.lvl ~= nil then
      lvl = Count.lvl
@@ -70,11 +70,11 @@ return spell.init{
      storage.gamePut(a,{exp = exp, expMax = expMax, lvl = lvl})
     end
     local enemy = RPD.Actor:findChar(cell)
-    
+
     if enemy and enemy ~= RPD.Dungeon.hero and enemy:buffLevel("KiMark") == 1 then
       RPD.affectBuff(RPD.Dungeon.hero, RPD.Buffs.Invisibility, 4)
     end
-    
+
     if enemy == RPD.Dungeon.hero then
        RPD.affectBuff(RPD.Dungeon.hero,"SealShield",2+lvl)
     else
@@ -86,7 +86,7 @@ return spell.init{
         RPD.affectBuff(enemy,"KiMark",4)
      end
    end
-   
+
  return true
    end
 }

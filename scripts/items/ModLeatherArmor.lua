@@ -1,7 +1,7 @@
 --
 -- Created by Mongol
 -- VK: mongolinsult
--- 
+--
 
 local RPD = require "scripts/lib/commonClasses"
 
@@ -19,9 +19,9 @@ local statsMax = 6
 local quanStats = 2
 local stra = 10
 local tier = 2
-local str 
+local str
 local stats
-local hero 
+local hero
 local statsInfo
 local config = armor.makeArmor("LeatherArmor",stra,tier,"")
 
@@ -29,7 +29,7 @@ config.desc = function(self, item)
       local a = RPG.getItemStats(quanStats,statsMax)
       statsInfo = a[1]
       stats = a[2]
-      
+
         return {
             imageFile     = "items/armor.png",
             image         = 1,

@@ -129,7 +129,7 @@ return spell.init{
         }
     end,
     castOnCell = function(self, spell, chr,cell)
-    
+
     if RPD.Dungeon.hero:lvl() <= 4 then
      RPD.glog(RPD.textById("LvlLimit"))
      return false
@@ -142,7 +142,7 @@ return spell.init{
       RPD.glog(RPD.textById("DistanceLimit"))
       return false
     end
-    
+
     Count = storage.gameGet(a) or {}
     if Count.lvl ~= nil then
       lvl = Count.lvl
@@ -168,7 +168,7 @@ return spell.init{
       expMax = 6
       storage.gamePut(a,{exp = exp, expMax = expMax, lvl = lvl, FT = TLvl[1], BT = TLvl[2], CT = TLvl[3], IT = TLvl[4], PT = TLvl[5], UP = TLvl.UP})
     end
-    
+
     cell1 = cell
     local enemy = RPD.Actor:findChar(cell)
     Add.trapChoise(choiseDialog)

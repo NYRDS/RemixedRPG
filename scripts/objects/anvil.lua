@@ -14,7 +14,7 @@ return object.init {
         return true
     end,
 
-    interact = function(self, object, hero) 
+    interact = function(self, object, hero)
       local smith = storage.gameGet("smithing") or {}
       smithy.lvl = smith.lvl
       smithy.exp = smith.exp

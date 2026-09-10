@@ -39,7 +39,7 @@ return spell.init{
         }
     end,
     castOnCell = function(self, spell, chr, cell)
-    
+
     local hero = RPD.Dungeon.hero
     Count = storage.gameGet(a) or {}
     if Count.lvl ~= nil then
@@ -59,17 +59,17 @@ return spell.init{
      expMax = 3
      storage.gamePut(a,{exp = exp, expMax = expMax, lvl = lvl})
     end
-    
-    
+
+
     local pos = RPD.Ballistica:cast(RPD.Dungeon.hero:getPos(),cell,true,true,true)
     local enemy = RPD.Actor:findChar(pos)
     RPD.zapEffect(RPD.Dungeon.hero:getPos(),pos,"fireball_effect")
- 
- 
+
+
     RPD.removeBuff(hero,"ResidualEffect_Buff")
     local Buff = RPD.affectBuff(hero, "ResidualEffect_Buff", 4):level(1)
- 
- 
+
+
     if enemy and enemy ~= RPD.Dungeon.hero then
       RPG.damage(enemy,math.ceil(RPG.magStr()*0.8+2*lvl), type,elmnt)
       RPD.affectBuff(enemy, "BurningBuff", 2)
@@ -78,7 +78,7 @@ return spell.init{
     else
       return true
   end
-  
- 
+
+
   end
 }

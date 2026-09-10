@@ -17,16 +17,16 @@ return item.init {
             price = 3
         }
     end,
-    dmg = function() 
+    dmg = function()
       return {2,4}
     end,
     buff = function()
       return {"PoisonBuff",5,8+RPG.AllFast()*0.15}
     end,
-    isFliesStraight = function() 
+    isFliesStraight = function()
       return true
     end,
-  	bag = function() 
+  	bag = function()
   		return "Quiver"
   	end
 }

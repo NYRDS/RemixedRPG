@@ -10,7 +10,7 @@ local mob = require"scripts/lib/mob"
 
 return mob.init{
 
-        
+
         die = function(enemy, self, cell, dmg)
 RPD.GameScene:flash(0xFFFFFF)
 RPD.GameScene:bossSlain()
@@ -19,7 +19,7 @@ RPD.playSound("snd_boss.mp3")
 local item = RPD.ItemFactory:itemByName("SkeletonKey")
 level:drop(item,self:getPos())
 end,
-        
+
     attackProc = function(self, enemy, dmg) -- melee attack
 if math.random(1,4)==1 then
 
@@ -33,7 +33,7 @@ for i = 1,2 do
                 monster:setPos(pos)
                 level:spawnMob(monster)
             end
-            
+
         end
 end
         return dmg

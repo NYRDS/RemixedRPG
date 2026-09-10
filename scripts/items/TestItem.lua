@@ -90,7 +90,7 @@ return itemLib.init{
 
     cellSelected = function(self, thisItem, action, cell)
 
-        
+
     end,
 
     execute = function(self, item, hero, action)

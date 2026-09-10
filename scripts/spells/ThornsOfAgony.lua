@@ -46,12 +46,12 @@ return spell.init{
     local hero = RPD.Dungeon.hero
     local level = RPD.Dungeon.level
     Count = storage.gameGet(a) or {}
-	
+
 	if RPD.Dungeon.hero:lvl() <= 4 then
      RPD.glog(RPD.textById("LvlLimit"))
      return false
     end
-	
+
     if Count.lvl ~= nil then
      lvl = Count.lvl
      exp = Count.exp
@@ -69,7 +69,7 @@ return spell.init{
      expMax = 4
      storage.gamePut(a,{exp = exp, expMax = expMax, lvl = lvl})
     end
-    
+
     local levelW = RPD.Dungeon.level:getWidth()
         local levelH = RPD.Dungeon.level:getHeight()
       if RPD.Dungeon.depth ~= 0 then
@@ -88,7 +88,7 @@ return spell.init{
                   local pos = level:cell(i,j)
                   local enemy2 = RPD.Actor:findChar(pos)
                   if enemy2 and enemy2 ~= hero then
-       
+
                     RPG.damage(enemy2,math.ceil(RPG.magStr()*0.1 + hero:ht()*0.15) + lvl, type,elmnt)
                     RPD.removeBuff(enemy2, "BloodMark")
                   end

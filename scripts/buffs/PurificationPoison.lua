@@ -18,9 +18,9 @@ return buff.init{
             info          = "PurificationPoison_BuffI",
         }
     end,
-    
+
     charAct = function(self,buff)
-      if buff.target:buffLevel("PoisonBuff") > 1 then 
+      if buff.target:buffLevel("PoisonBuff") > 1 then
         RPD.removeBuff(buff.target,"PoisonBuff")
       end
     end

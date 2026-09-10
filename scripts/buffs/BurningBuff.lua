@@ -25,7 +25,7 @@ return buff.init{
             }
         }
     end,
-    
+
     charAct = function(self,buff)
       local data = self:desc().data
       RPG.damage(buff.target,math.ceil(data.dmg*(1+math.min((buff:level() +buff:level()%2)*0.05,0.3)) ),type,elmnt)

@@ -43,12 +43,12 @@ return spell.init{
     cast = function(self, spell, chr, cell)
     Count = storage.gameGet(a) or {}
     local hero = RPD.Dungeon.hero
-    
+
     if RPD.Dungeon.hero:lvl() <= 4 then
      RPD.glog(RPD.textById("LvlLimit"))
      return false
     end
-    
+
     if Count.lvl ~= nil then
      lvl = Count.lvl
      exp = Count.exp
@@ -60,9 +60,9 @@ return spell.init{
      expMax = 6
      storage.gamePut(a,{exp = exp, expMax = expMax, lvl = lvl})
     end
-    
+
     hero:heal(math.ceil(RPG.magStr()*(0.45 + 0.03*lvl)), hero)
-    
+
     RPD.removeBuff(RPD.Dungeon.hero,"ResidualEffect_Buff")
     RPD.affectBuff(RPD.Dungeon.hero, "ResidualEffect_Buff", 4):level(2)
    return true

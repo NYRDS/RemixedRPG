@@ -21,13 +21,13 @@ return item.init{
             equipable     = "left_hand"
         }
     end,
-  
+
 activate = function(self, item, hero)
     end,
-    
+
 deactivate = function(self, item, hero)
  end,
- 
+
 actions = function(self, item, hero)
 if item:isEquipped(RPD.Dungeon.hero) then
 return {"ВЫСТРЕЛИТЬ","ПЕРЕЗАРЯДИТЬСЯ("..tostring(BulNow).."/8)"}
@@ -74,7 +74,7 @@ end
 end,
 
 cellSelected = function(self, thisItem, action, cell)
-        if action == "ВЫСТРЕЛИТЬ" then 
+        if action == "ВЫСТРЕЛИТЬ" then
 local enemy = RPD.Actor:findChar(cell)
   if enemy then
 RPD.glog("** Сияние рассвета разряжено")

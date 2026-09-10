@@ -30,6 +30,6 @@ local RPG1 = {
                 "Маг(интеллект)"
         )
  end
- 
+
  }
 return RPG1

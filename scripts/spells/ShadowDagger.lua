@@ -42,12 +42,12 @@ return spell.init{
     end,
     cast = function(self, spell, chr, cell)
     Count = storage.gameGet(a) or {}
-    
+
     if RPD.Dungeon.hero:lvl() <= 4 then
      RPD.glog(RPD.textById("LvlLimit"))
      return false
     end
-    
+
     if Count.lvl ~= nil then
      lvl = Count.lvl
      exp = Count.exp
@@ -59,7 +59,7 @@ return spell.init{
      expMax = 10
      storage.gamePut(a,{exp = exp, expMax = expMax, lvl = lvl})
     end
-    
+
     RPD.removeBuff(RPD.Dungeon.hero,"ShadowDaggerBuff")
     RPD.permanentBuff(RPD.Dungeon.hero, "ShadowDaggerBuff")
    return true

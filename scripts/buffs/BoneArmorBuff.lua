@@ -28,21 +28,21 @@ return buff.init{
     charAct = function(self,buff)
       scale = scale +1
     end,
-    
+
     defenceProc = function(self,buff,enemy,damage)
       acc = acc - math.ceil(damage*0.5)
       return damage
     end,
-    
+
     drBonus = function(self,buff)
      local Count = storage.gameGet(a) or {}
      return math.ceil(RPG.magStr()*(0.35 + 0.1*scale) + 2*Count.lvl)
     end,
-    
+
     speedMultiplier = function(self, buff)
         return 0.7 + RPG.AllFast()*0.2
     end,
-    
+
     detach = function(self,buff)
       hero = RPD.Dungeon.hero
       level = RPD.Dungeon.level
@@ -66,7 +66,7 @@ return buff.init{
       local x = level:cellX(buff.target:getPos())
       local y = level:cellY(buff.target:getPos())
       local enName
-     
+
       for i = x-1,x+1 do
         for j = y-1,y+1 do
           local pos = level:cell(i,j)

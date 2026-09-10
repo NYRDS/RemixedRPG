@@ -16,7 +16,7 @@ return buff.init{
             info          = "WeaknessD",
         }
     end,
-    
+
     attackProc = function(self,buff,enemy,damage)
     buff:detach()
      return damage/2

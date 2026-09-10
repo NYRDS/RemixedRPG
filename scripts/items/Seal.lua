@@ -11,7 +11,7 @@ return item.init {
             info          = ""
         }
     end,
-  isFliesStraight = function() 
+  isFliesStraight = function()
    return true
   end
 }

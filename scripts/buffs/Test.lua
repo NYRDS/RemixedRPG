@@ -24,14 +24,14 @@ local x = level:cellX(buff.target:getPos())
     for i = x-2 , x + 2 do
            for j = y-2, y + 2 do
             local pos = level:cell(i,j)
-            local enemy = RPD.Actor:findChar(pos) 
+            local enemy = RPD.Actor:findChar(pos)
             local heroPos=RPD.Dungeon.hero:getPos()
             if pos == heroPos then
 RS.spawnMob("DwemerBall",buff.target:getPos(),false)
             buff.target:die()
             end
          end
-      end 
+      end
 end
 
 

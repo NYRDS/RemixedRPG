@@ -11,14 +11,14 @@ local mob = require"scripts/lib/mob"
 
 
 return mob.init{
-        
+
         die = function(enemy, self, cell, dmg)
 RPD.GameScene:flash(0xFFFFFF)
 RPD.GameScene:bossSlain()
 RPD.playSound("snd_boss.mp3")
 end,
-        
-    zapProc = function(self, cause) 
+
+    zapProc = function(self, cause)
         local level = RPD.Dungeon.level
         print(self, cause)
 

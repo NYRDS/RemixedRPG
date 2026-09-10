@@ -23,7 +23,7 @@ return buff.init{
             info          = "PoisonD",
         }
     end,
-    
+
     charAct = function(self,buff)
       local Spell = storage.gameGet(a) or {}
       RPG.damage(buff.target,RPG.smartInt(buff:level()*(1+scale*0.005)), type,elmnt)

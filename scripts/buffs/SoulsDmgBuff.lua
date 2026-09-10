@@ -21,7 +21,7 @@ return buff.init{
             info          = "SoulsTormentor_BuffD",
         }
     end,
-    
+
     attackProc = function(self,buff,enemy,damage)
       local Spell = storage.gameGet(a) or {}
       if enemy:buffLevel("SoulsDmgMark") == 0 then
@@ -32,7 +32,7 @@ return buff.init{
       mark:level(staks)
       mark:spend((1 +Spell.lvl))
       end
-      
+
     return damage
     end
 }

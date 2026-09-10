@@ -1,7 +1,7 @@
 --
 -- Created by Mongol
 -- VK: mongolinsult
--- 
+--
 
 local RPD = require "scripts/lib/commonClasses"
 
@@ -23,9 +23,9 @@ local minDmg = 6
 local accuracy = 1.5
 local delayFactor = 1
 local range = 1
-local str 
+local str
 local stats
-local hero 
+local hero
 local statsInfo
 local config = onehandWeapon.makeWeapon("Mace","WeaponAccu",stra,minDmg,maxDmg,tier,accuracy,delayFactor,range,"phys","crush","SWORD")
 config.desc  = function (self, item)

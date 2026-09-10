@@ -14,7 +14,7 @@ return buff.init{
             icon          = -1
         }
     end,
-    
+
     immunities = function(self,buff)
   return debuffs
 end

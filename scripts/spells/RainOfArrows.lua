@@ -49,12 +49,12 @@ return spell.init{
      RPD.glog(RPD.textById("LvlLimit"))
      return false
     end
-    
+
       if weapon:goodForMelee() == true or weapon:getClassName() == "DummyItem" then
         RPD.glog(RPD.textById("RainOfArrowsLimit"))
         return false
       end
-      
+
     if level:getTileType(cell) == 4 or level:getTileType(cell) == 12 then
       RPD.glog(RPD.textById("WallLimit"))
       return false
@@ -63,7 +63,7 @@ return spell.init{
       RPD.glog(RPD.textById("DistanceLimit"))
       return false
     end
-    
+
     Count = storage.gameGet(a) or {}
     if Count.lvl ~= nil then
      lvl = Count.lvl
@@ -82,10 +82,10 @@ return spell.init{
      expMax = 4
      storage.gamePut(a,{exp = exp, expMax = expMax, lvl = lvl})
     end
-    
+
      local x = level:cellX(cell)
      local y = level:cellY(cell)
-     
+
      for i = x-1,x+1 do
       for j = y-1,y+1 do
        local pos = level:cell(i,j)

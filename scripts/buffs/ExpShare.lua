@@ -22,7 +22,7 @@ return buff.init{
             info          = "",
         }
     end,
-    
+
     charAct = function(self,buff)
       local Spell = storage.gameGet(a) or {}
       if old > 2 then
@@ -35,11 +35,11 @@ return buff.init{
         buff.target:die(buff.target)
       end
     end,
-    
+
     speedMultiplier = function(self, buff)
         return 1
     end,
-    
+
     attackProc = function(self,buff,enemy,damage)
     if RPG.subclass == "Necromancer" then
       luckBonus = 1.5

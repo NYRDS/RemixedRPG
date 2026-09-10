@@ -23,17 +23,17 @@ local sList = "spelllist"
 
 local Spells
 
-local strPrice 
-local intPrice 
-local dexPrice 
-local vitPrice 
-local wisPrice 
-local lucPrice 
-local strLvl 
-local intLvl 
-local dexLvl 
-local vitLvl 
-local wisLvl 
+local strPrice
+local intPrice
+local dexPrice
+local vitPrice
+local wisPrice
+local lucPrice
+local strLvl
+local intLvl
+local dexLvl
+local vitLvl
+local wisLvl
 local lucLvl
 local sMas
 
@@ -86,13 +86,13 @@ dialog = function(index)
      Add.statusWindow(dialog,states,index1,strPrice,intPrice,dexPrice,vitPrice,wisPrice,lucPrice)
      end
  end
- 
+
  if index == 1 then
- 
+
   if index1-1 == 0 then
   if RPG.sPoints >= strPrice then
    RPG.sPoints = RPG.sPoints-strPrice
-   
+
    RPG.strength = RPG.strength+1
    RPG.physicStr = RPG.physicStr+1
    if RPG.strength%2 == 0 and RPG.subclass == "Berserk" or RPG.subclass == "BattleMage" or RPG.subclass == "Reaper" then
@@ -103,11 +103,11 @@ dialog = function(index)
    end
    end
   end
-  
+
   if index1-1 == 1 then
    if RPG.sPoints >= intPrice then
    RPG.sPoints = RPG.sPoints-intPrice
-   
+
    RPG.intelligence = RPG.intelligence+1
    hero:setMaxSkillPoints(hero:getSkillPointsMax()+1)
    hero:setSkillPoints(hero:getSkillPoints()+1)
@@ -122,7 +122,7 @@ dialog = function(index)
    end
    end
   end
-  
+
   if index1-1 == 2 then
    if RPG.sPoints >= dexPrice then
    RPG.sPoints = RPG.sPoints-dexPrice
@@ -133,11 +133,11 @@ dialog = function(index)
    end
    end
   end
-  
+
   if index1-1 == 3 then
    if RPG.sPoints >= vitPrice then
    RPG.sPoints = RPG.sPoints-vitPrice
-   
+
    RPG.vitality = RPG.vitality+1
    hero:ht(hero:ht()+1)
    hero:heal(1,hero)
@@ -155,7 +155,7 @@ dialog = function(index)
    end
    end
   end
-  
+
   if index1-1 == 4 then
    if RPG.sPoints >= wisPrice then
    RPG.sPoints = RPG.sPoints-wisPrice
@@ -168,14 +168,14 @@ dialog = function(index)
    RPG.wisdom = RPG.wisdom+1
    end
   end
-  
+
   if index1-1 == 5 then
    if RPG.sPoints >= lucPrice then
    RPG.sPoints = RPG.sPoints-lucPrice
    RPG.luck = RPG.luck+1
    end
   end
-  
+
   if RPG.strength == strLvl then
    strPrice = strPrice+1
    strLvl = strLvl+35
@@ -200,20 +200,20 @@ dialog = function(index)
    lucPrice = lucPrice+1
    lucLvl = lucLvl+35
   end
-  
+
   if RPG.class == nil and hero:lvl() >= 5 then
      Add.statusWindowClass(dialog,states,index1,strPrice,intPrice,dexPrice,vitPrice,wisPrice,lucPrice)
     else
      Add.statusWindow(dialog,states,index1,strPrice,intPrice,dexPrice,vitPrice,wisPrice,lucPrice)
  end
-  
+
      storage.gamePut(stats, {str = RPG.strength, int = RPG.intelligence, dex = RPG.dexterity, vit = RPG.vitality, wis = RPG.wisdom, luc = RPG.luck, strP = strPrice, intP = intPrice, dexP = dexPrice, vitP = vitPrice, wisP = wisPrice, lucP = lucPrice, strL = strLvl, intL = intLvl, dexL = dexLvl, vitL = vitLvl, wisL = wisLvl, lucL = lucLvl, lvlT = RPG.lvlToUp, magS = RPG.magicStr, phyS = RPG.physicStr, fast = RPG.fast, sP = RPG.sPoints, spR = RPG.spRegen, class = RPG.class})
  end
- 
+
  if index == 2 then
   Add.classWindow(classDialog)
  end
- 
+
  end
 
 return spell.init{
@@ -236,7 +236,7 @@ return spell.init{
     Spells = require "scripts/spells/CustomSpellsList"
     if Stats.str ~= nil then
      RPD.glog("True")
-     
+
      if RPG.strength == nil then
      RPG.strength = Stats.str
      RPG.intelligence = Stats.int
@@ -244,7 +244,7 @@ return spell.init{
      RPG.vitality = Stats.vit
      RPG.wisdom = Stats.wis
      RPG.luck = Stats.luc
-     
+
      RPG.sPoints = Stats.sP
      RPG.spRegen = Stats.spR
      RPG.physicStr = Stats.phyS
@@ -266,18 +266,18 @@ return spell.init{
      vitLvl = Stats.vitL
      wisLvl = Stats.wisL
      lucLvl = Stats.lucL
-     
+
      storage.gamePut(stats, {str = RPG.strength, int = RPG.intelligence, dex = RPG.dexterity, vit = RPG.vitality, wis = RPG.wisdom, luc = RPG.luck, strP = strPrice, intP = intPrice, dexP = dexPrice, vitP = vitPrice, wisP = wisPrice, lucP = lucPrice, strL = strLvl, intL = intLvl, dexL = dexLvl, vitL = vitLvl, wisL = wisLvl, lucL = lucLvl, lvlT = RPG.lvlToUp, magS = RPG.magicStr, phyS = RPG.physicStr, fast = RPG.fast, sP = RPG.sPoints, spR = RPG.spRegen, class = RPG.class})
-     
+
     else
      RPD.glog("False")
-     
+
      Que.new(sList)
      sMas = {"Stats","MagicBolt","ShadowClone","Chop"}
      Que.pushMas(sList,sMas)
-     
+
      RPD.permanentBuff(hero,"RPGbuff")
-     
+
      RPG.sPoints = 15
      RPG.spRegen = 1
      RPG.physicStr = 1
@@ -304,11 +304,11 @@ return spell.init{
      vitLvl = 35
      wisLvl = 35
      lucLvl = 35
-     
+
      storage.gamePut(stats, {str = RPG.strength, int = RPG.intelligence, dex = RPG.dexterity, vit = RPG.vitality, wis = RPG.wisdom, luc = RPG.luck, strP = strPrice, intP = intPrice, dexP = dexPrice, vitP = vitPrice, wisP = wisPrice, lucP = lucPrice, strL = strLvl, intL = intLvl, dexL = dexLvl, vitL = vitLvl, wisL = wisLvl, lucL = lucLvl, lvlT = RPG.lvlToUp, magS = RPG.magicStr, phyS = RPG.physicStr, fast = RPG.fast, sP = RPG.sPoints, spR = RPG.spRegen, class = RPG.class})
     end
     RPD.glog(RPG.class)
-    
+
     hero = RPD.Dungeon.hero
     if RPG.class == nil and hero:lvl() >= 5 then
      Add.statusWindowClass(dialog,states,index1,strPrice,intPrice,dexPrice,vitPrice,wisPrice,lucPrice)
@@ -316,7 +316,7 @@ return spell.init{
      Add.statusWindow(dialog,states,index1,strPrice,intPrice,dexPrice,vitPrice,wisPrice,lucPrice)
      end
     hero:setSkillPoints(hero:getSkillPoints()-1)
-    
+
         return true
     end
 }

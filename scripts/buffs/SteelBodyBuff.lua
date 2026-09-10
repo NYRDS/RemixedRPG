@@ -25,7 +25,7 @@ return buff.init{
      local Count = storage.gameGet(a) or {}
      return math.ceil(buff.target:hp()*0.15 +4 +3*Count.lvl)
     end,
-    
+
     speedMultiplier = function(self, buff)
         return 0.5 + RPG.AllFast()*0.2
     end

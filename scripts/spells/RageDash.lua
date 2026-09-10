@@ -45,21 +45,21 @@ return spell.init{
             castTime      = 1
         }
     end,
-    
+
     castOnCell = function(self, spell, chr, cell, caster)
     local level = RPD.Dungeon.level
     local hero = RPD.Dungeon.hero
-    
+
     if RPD.Dungeon.hero:lvl() <= 4 then
      RPD.glog(RPD.textById("LvlLimit"))
      return false
     end
-    
+
     if level:getTileType(cell) == 4 or level:getTileType(cell) == 12 or RPG.distance(cell) > math.min(2+lvl,5) then
       RPD.glog(RPD.textById("DashLimit"))
         return false
       end
-      
+
     Count = storage.gameGet(a) or {}
     if Count.lvl ~= nil then
      lvl = Count.lvl
@@ -72,7 +72,7 @@ return spell.init{
      expMax = 4
      storage.gamePut(a,{exp = exp, expMax = expMax, lvl = lvl})
     end
-    
+
     if exp == expMax then
        exp = 0
        expMax = expMax+5

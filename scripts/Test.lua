@@ -15,7 +15,7 @@ return buff.init{
             info          = "От тебя исходит аура света",
         }
     end,
-    
+
     RPD.Sfx.CellEmitter:get(hero:getPos()):burst(RPD.Sfx.Speck:factory(RPD.Sfx.Speck.MAGIC ), 7);
 
 charAct = function(hero, buff)

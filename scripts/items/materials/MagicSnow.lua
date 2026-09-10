@@ -1,7 +1,7 @@
 --
 -- Created by Mongol
 -- VK: mongolinsult
--- 
+--
 
 local RPD = require "scripts/lib/commonClasses"
 
@@ -35,70 +35,70 @@ desc  = function(self, item)
                4.4,
                3.6,
                0},
-               
-              armor = 
+
+              armor =
               {{-1.25,-0.01},
-               {-1.25,-0.01}, 
-               
+               {-1.25,-0.01},
+
                {1,0},
                {1.75,0.25},
-               
+
                {0,0},
                {0,0},
-               
+
                {-1.25,-0.01},
                {0,0},
-               
+
                {0,0},
                {0,0},
-               
+
                {0,0},
                {0,0},
                {0,0},
                {0,0}},
               dr = 1,
-              
-              weapon = 
+
+              weapon =
               {{-1.25,-0.01},
                {0,0},
-               
+
                {0,0},
                {1.75,0.02},
-               
+
                {0,0},
                {0,0},
-               
+
                {-1.25,-0.01},
                {0,0},
-               
+
                {0,0},
                {0,0},
-               
+
                {0,0},
                {0,0},
                {0,0},
                {0,0},
-               
+
                {0,0},
                {0,0},
-               
+
                {0,0},
                {0,0},
-               
+
                {0,0},
                {0,0},
-               
+
                {0,0},
                {0,0},
-               
+
                {0,0},
                {0,0},
-               
+
                {0,0},
                {0,0},
                {0,0},
                {0,0}},
-              dmg = 
+              dmg =
               {0,
                0},
               delay = 0,
@@ -107,22 +107,22 @@ desc  = function(self, item)
             }
         }
     end,
-        
-    bag = function() 
+
+    bag = function()
   		return "SeedPouch"
   	end,
-  	
-    
+
+
     typicalStr = function()
      return str
     end,
-    
-    
+
+
     info = function(self)
       local d = self.data
       local sInfo = RPG.getMaterialsInfo(d.stats, d.armor, d.weapon, d.dmg, d.dr, d.delay, d.accuracy, d.range,str)
-      
+
       return RPD.textById(itemName.."_Info").."\n"..sInfo
     end
-    
+
     }

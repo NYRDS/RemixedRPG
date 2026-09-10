@@ -15,7 +15,7 @@ return buff.init{
             info          = "KiMarkD",
         }
     end,
-    
+
     defenceProc = function(self, buff, enemy, damage)
       buff:detach()
       return damage

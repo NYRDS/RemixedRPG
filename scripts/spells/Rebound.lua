@@ -43,21 +43,21 @@ return spell.init{
             castTime      = 0
         }
     end,
-    
+
     castOnCell = function(self, spell, chr, cell, caster)
     local level = RPD.Dungeon.level
     local hero = RPD.Dungeon.hero
-    
+
     if RPD.Dungeon.hero:lvl() <= 4 then
      RPD.glog(RPD.textById("LvlLimit"))
      return false
     end
-    
+
     if RPG.subclass ~= nil and RPG.subclass ~= "Archer" then
       RPD.glog(RPD.textById("SubclassLimit"))
       return false
     end
-    
+
     Count = storage.gameGet(a) or {}
     if Count.lvl ~= nil then
      lvl = Count.lvl

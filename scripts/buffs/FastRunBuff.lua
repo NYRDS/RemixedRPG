@@ -21,7 +21,7 @@ return buff.init{
             info          = "Fastrun_BuffD",
         }
     end,
-    
+
     speedMultiplier = function(self, buff)
     local Spell = storage.gameGet(a) or {}
     if Spell.lvl ~= nil then

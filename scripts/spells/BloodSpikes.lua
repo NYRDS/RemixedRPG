@@ -50,7 +50,7 @@ return spell.init{
     local hero = RPD.Dungeon.hero
     local level = RPD.Dungeon.level
     Count = storage.gameGet(a) or {}
-    
+
     if RPD.Dungeon.hero:lvl() <= 4 then
      RPD.glog(RPD.textById("LvlLimit"))
      return false
@@ -59,7 +59,7 @@ return spell.init{
       RPD.glog(RPD.textById("SubclassLimit"))
       return false
     end
-    
+
     if Count.lvl ~= nil then
       lvl = Count.lvl
       exp = Count.exp
@@ -96,7 +96,7 @@ return spell.init{
      staks = 0
      storage.gamePut(a,{exp = exp, expMax = expMax, lvl = lvl, bp = bloodPoison, staks = staks})
     end
-    
+
     local mobsExeptions =
     {
     BoneGolem_lvl1=false,
@@ -128,11 +128,11 @@ return spell.init{
     JarOfSouls = false,
     Lich = false,
     RunicSkull = false
-    
+
     }
-    
+
     local enemy = RPD.Actor:findChar(cell)
-    
+
     if enemy and enemy ~= hero then
      enemyId_1 = enemy:getId()
     end
@@ -143,24 +143,24 @@ return spell.init{
     RPD.bottomEffect(cell,"blood_spikes_sp_bot")
      local x = level:cellX(enemy:getPos())
      local y = level:cellY(enemy:getPos())
-     
+
      for i = x-1,x+1 do
       for j = y-1,y+1 do
        local pos = level:cell(i,j)
        local enemy2 = RPD.Actor:findChar(pos)
        if enemy2 and enemy2 ~= hero and enemy2 ~= enemy then
-       
+
         RPG.damage(enemy2,math.ceil(RPG.magStr()*0.1 + hero:ht()*0.15) + lvl, type, element)
         RPD.affectBuff(enemy2,"BloodMark", 3)
        end
       end
      end
     end
-    
+
      enemyId_2 = enemyId_1
     if enemy and enemy ~= RPD.Dungeon.hero then
      RPG.damage(enemy,math.ceil(RPG.magStr()*0.2 + hero:ht()*0.25) + lvl, type, element)
-     
+
       if mobsExeptions[enemy:name()] ~= false then
         RPD.affectBuff(enemy,"BloodMark", 3)
         if enemy:hp() <= 0 then
@@ -177,11 +177,11 @@ return spell.init{
        RPD.removeBuff(hero,"PoisonedBlood")
       RPD.affectBuff(hero,"PoisonedBlood",15+5*staks)
       end
-      
+
       storage.gamePut(a,{exp = exp, expMax = expMax, lvl = lvl, bp = bloodPoison, staks = staks})
      end
     end
-    
+
   return true
    end
 }

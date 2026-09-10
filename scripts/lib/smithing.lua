@@ -29,7 +29,7 @@ smithy = {
   expToUp = expToUp,
   myself = myself,
   goldForBuy = 0,
-  materialCount = 
+  materialCount =
   {
     Sword={8,5},
     Longsword={14,5},
@@ -118,12 +118,12 @@ missileWnd = function(index)
     "MagicStaff",
     "MagicWand"
   }
-  
+
   smithy.choosenObject = chooses[index+1]
   if index > 1 then
     smithy.mode = "magic"
   end
-  if index == 1 then 
+  if index == 1 then
     smithy.thisTwohanded = true
   end
   Add.smithChooseMaterials(smithy.chooseMaterials)
@@ -137,7 +137,7 @@ armorWnd = function(index)
     "MediumArmor",
     "HeavyArmor"
   }
-  
+
 
   smithy.choosenObject = chooses[index+1]
   Add.smithChooseMaterials(smithy.chooseMaterials)
@@ -151,54 +151,54 @@ chooseMaterials = function(index)
   local finalGroup = smithy.finalMaterials[index+1]
   local quantityOfChoosed = {0,0}
   local selectedItem
-  
+
   for i = 1,2 do
-  
+
     local fMaterialsGroup = smithy.finalMaterials[i]
-    
+
     for ii =1,#fMaterialsGroup do
-    
+
       local fMaterial = fMaterialsGroup[ii]
       quantityOfChoosed[i] = quantityOfChoosed[i] + (fMaterial[2] or 0)
-      
+
     end
   end
-  
-  
+
+
   if index == 2 then
-      
+
         smithy.quantityToChoose = smithy.quantityToChoose+1
       elseif index == 3 then
-      
+
         if smithy.quantityToChoose ~= 0 then
           smithy.quantityToChoose = smithy.quantityToChoose-1
-          
+
         end
       end
-    
-    
+
+
     if (mCount[index+1] or 0) - (quantityOfChoosed[index+1] or 0) >= smithy.quantityToChoose and smithy.quantityToChoose ~= 0 then
-    
-    
+
+
       if index < 2 then
         RPG.selectItemForSmithing(luajava.bindClass(WndBag).Mode.ALL,"chooseTheMaterials",index+1,smithy.quantityToChoose)
         smithy.quantityToChoose = 0
       end
-        
+
         elseif index ~= 4 then
         Add.smithChooseMaterials(smithy.chooseMaterials)
-        
+
       end
-      
-      
+
+
       if index == 4 and quantityOfChoosed[1] == mCount[1] and smithy.goldForBuy <= hero:gold()  then
         hero = RPD.Dungeon.hero
         hero:spendGold(smithy.goldForBuy)
-        
+
         local is = RPG.statsFromMaterials(smithy.finalMaterials,smithy.mode)
-        
+
         smithy.finalStats = {activationCount = 0, str = is.str,info=is.info, name = is.name, visualName = is.visualName, icon = is.icon, tier = is.tier, dr = is.dr, maxDmg = is.maxDmg, minDmg = is.minDmg, accuracy = is.accuracy, delay = is.delay, range = is.range, dstats = is.dstats, addstats = is.addStats, type = is.type, element = is.element, wType = smithy.wType, choosenObject = smithy.choosenObject, level = 0, rareScale = is.rareScale}
-        
+
         if smithy.mode == "armor" then
           armor = RPD.item("forgedArmor")
           hero:collect(armor,1)
@@ -206,7 +206,7 @@ chooseMaterials = function(index)
           weapon = RPD.item("forged"..smithy.choosenObject)
           hero:collect(weapon,1)
         end
-        
+
         smithy.finalMaterials={{},{}}
         smithy.goldForBuy = 0
         smithy.thisTwohanded = false

@@ -22,16 +22,16 @@ return buff.init{
             info          = "",
         }
     end,
-    
+
     charAct = function()
       RPD.BuffIndicator:refreshHero()
     end,
-    
+
     detach = function(self,buff)
     Spell = storage.gameGet(a) or {}
       local hero = RPD.Dungeon.hero
      hero:ht(hero:ht() +Spell.bp)
-     
+
      storage.gamePut(a,{exp = Spell.exp, expMax = Spell.expMax, lvl = Spell.lvl, bp = Spell.bp, staks = 0})
     end,
     icon = function()

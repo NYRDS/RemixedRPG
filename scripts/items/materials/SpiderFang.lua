@@ -1,7 +1,7 @@
 --
 -- Created by Mongol
 -- VK: mongolinsult
--- 
+--
 
 local RPD = require "scripts/lib/commonClasses"
 
@@ -35,10 +35,10 @@ desc  = function(self, item)
                0,
                0,
                0},
-               
-              armor = 
+
+              armor =
               {{0,0},
-               {0,0}, 
+               {0,0},
                {0,0},
                {0,0},
                {0,0},
@@ -52,8 +52,8 @@ desc  = function(self, item)
                {0,0},
                {0,0}},
               dr = 0,
-              
-              weapon = 
+
+              weapon =
               {{0,0},
                {0,0},
                {0,0},
@@ -68,7 +68,7 @@ desc  = function(self, item)
                {0,0},
                {0,0},
                {0,0},
-               
+
                {0,0},
                {0,0},
                {0,0},
@@ -83,7 +83,7 @@ desc  = function(self, item)
                {0,0},
                {0,0},
                {0,0}},
-              dmg = 
+              dmg =
               {0.25,
                0.3},
               delay = 0,
@@ -92,23 +92,23 @@ desc  = function(self, item)
             }
         }
     end,
-            
-    
-    bag = function() 
+
+
+    bag = function()
   		return "SeedPouch"
   	end,
-    
-    
+
+
     typicalStr = function()
      return str
     end,
-    
-    
+
+
     info = function(self)
       local d = self.data
       local sInfo = RPG.getMaterialsInfo(d.stats, d.armor, d.weapon, d.dmg, d.dr, d.delay, d.accuracy, d.range,str)
-      
+
       return RPD.textById(itemName.."_Info").."\n"..sInfo
     end
-    
+
     }

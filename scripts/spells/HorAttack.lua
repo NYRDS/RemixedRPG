@@ -46,7 +46,7 @@ return spell.init{
             castTime      = 1
         }
     end,
-    
+
     castOnCell = function(self, spell, chr, cell, caster)
     local level = RPD.Dungeon.level
     local hero = RPD.Dungeon.hero
@@ -54,7 +54,7 @@ return spell.init{
      RPD.glog(RPD.textById("LvlLimit"))
      return false
     end
-      
+
     Count = storage.gameGet(a) or {}
     if Count.lvl ~= nil then
      lvl = Count.lvl
@@ -68,13 +68,13 @@ return spell.init{
      exp = exp+1
      storage.gamePut(a,{exp = exp, expMax = expMax, lvl = lvl})
     end
-    
+
     if exp == expMax then
        exp = 0
        expMax = expMax+5
        lvl = lvl+1
      end
-     
+
     local weaponA = hero:getBelongings().weapon
     local heroPos = hero:getPos()
     moveTo = RPD.Ballistica:cast(heroPos,cell,true,false,false)

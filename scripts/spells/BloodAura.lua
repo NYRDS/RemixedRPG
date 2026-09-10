@@ -77,7 +77,7 @@ return spell.init{
      RPD.affectBuff(enemy,RPG.Buffs.Terror,1+lvl)
       end
      end
-    end 
+    end
   return true
    end
 }

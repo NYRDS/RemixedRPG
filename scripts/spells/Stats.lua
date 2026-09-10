@@ -63,7 +63,7 @@ if RPG.class == "Warrior" then
     RPG.subclass = "Samurai"
  end
 end
- 
+
 if RPG.class == "Rogue" then
  if index == 0 then
    sMas = {"Stats","MagicBolt","ShadowClone","Chop","FlurryArrows","RainOfArrows","Rebound"}
@@ -86,7 +86,7 @@ if RPG.class == "Rogue" then
     RPG.subclass = "Bandit"
  end
 end
- 
+
 if RPG.class == "Mage" then
  if index == 0 then
    sMas = {"Stats","MagicBolt","ShadowClone","Chop","Fireball","EarthHeal","Lightning"}
@@ -152,22 +152,22 @@ dialog = function(index)
      end
    end
    end
- 
+
  if index == 1 then
- 
+
   if index1-1 == 0 then
     if RPG.sPoints ~= 0 then
       RPG.sPoints = RPG.sPoints-1
       RPG.strength = RPG.strength+1
       RPG.physicStr = RPG.physicStr+1
-      
+
       if RPG.strength%2 == 0 and (RPG.subclass == "Berserk" or RPG.subclass == "BattleMage" or RPG.subclass == "Assassin") then
         RPG.physicStr = RPG.physicStr+1
-        
+
       end
     end
   end
-  
+
   if index1-1 == 1 then
     if RPG.sPoints ~= 0 then
       RPG.sPoints = RPG.sPoints-1
@@ -185,7 +185,7 @@ dialog = function(index)
       end
     end
   end
-  
+
   if index1-1 == 2 then
     if RPG.sPoints ~= 0 then
       RPG.sPoints = RPG.sPoints-1
@@ -196,7 +196,7 @@ dialog = function(index)
       end
     end
   end
-  
+
   if index1-1 == 3 then
     if RPG.sPoints ~= 0 then
       RPG.sPoints = RPG.sPoints-1
@@ -219,7 +219,7 @@ dialog = function(index)
       end
     end
   end
-  
+
   if index1-1 == 4 then
     if RPG.sPoints ~= 0 then
       RPG.sPoints = RPG.sPoints-1
@@ -236,14 +236,14 @@ dialog = function(index)
       end
       end
     end
-  
+
   if index1-1 == 5 then
     if RPG.sPoints ~= 0 then
       RPG.sPoints = RPG.sPoints-1
       RPG.luck = RPG.luck+1
     end
   end
-  
+
   if RPG.class == nil and hero:lvl() >= 5 then
      Add.statusWindowClass(dialog,states,index1)
    else
@@ -253,10 +253,10 @@ dialog = function(index)
        Add.statusWindow(dialog,states,index1)
      end
    end
-  
+
      storage.gamePut(stats, {str = RPG.strength, int = RPG.intelligence, dex = RPG.dexterity, vit = RPG.vitality, wis = RPG.wisdom, luc = RPG.luck, lvlT = RPG.lvlToUp, magS = RPG.magicStr, phyS = RPG.physicStr, fast = RPG.fast, sP = RPG.sPoints, spR = RPG.spRegen,magDef = RPG.magDef, class = RPG.class, subclass = RPG.subclass})
  end
- 
+
  if index == 2 then
  if RPG.class == nil then
     Add.classWindow(classDialog)
@@ -264,7 +264,7 @@ dialog = function(index)
     Add.subclassWindow(subclassDialog)
   end
  end
- 
+
  end
 
 return spell.init{
@@ -287,11 +287,11 @@ return spell.init{
     local smith = storage.gameGet("smithing") or {}
     Spells = require "scripts/spells/CustomSpellsList"
     if Stats.str ~= nil then
-    
+
      if caster:buffLevel("RPGbuff") == 0 then
       RPD.permanentBuff(hero,"RPGbuff")
     end
-     
+
      if RPG.strength == nil then
      RPG.strength = Stats.str
      RPG.intelligence = Stats.int
@@ -299,7 +299,7 @@ return spell.init{
      RPG.vitality = Stats.vit
      RPG.wisdom = Stats.wis
      RPG.luck = Stats.luc
-     
+
      RPG.sPoints = Stats.sP
      RPG.spRegen = Stats.spR
      RPG.physicStr = Stats.phyS
@@ -308,22 +308,22 @@ return spell.init{
      RPG.lvlToUp = Stats.lvlT
      RPG.class = Stats.class
      RPG.subclass = Stats.subclass
-     
+
      end
 
      storage.gamePut(stats, {str = RPG.strength, int = RPG.intelligence, dex = RPG.dexterity, vit = RPG.vitality, wis = RPG.wisdom, luc = RPG.luck, lvlT = RPG.lvlToUp, magS = RPG.magicStr, phyS = RPG.physicStr, fast = RPG.fast, sP = RPG.sPoints, spR = RPG.spRegen,magDef = RPG.magDef, class = RPG.class, subclass = RPG.subclass})
-     
+
     else
-     
-    
+
+
      sMas = {"Stats","MagicBolt","ShadowClone","Chop"}
-     Que.pushMas(sList,sMas) 
+     Que.pushMas(sList,sMas)
      storage.gamePut("choosedArrows",{is = "missiles/CommonArrow"})
      storage.gamePut("heroSteps",{steps = 0})
-     
+
      storage.gamePut("subClassNone",{none = tostring(hero:getSubClass())})
      RPGbuff = RPD.permanentBuff(hero,"RPGbuff")
-     
+
      RPG.sPoints = 32
      RPG.spRegen = 1
      RPG.physicStr = 1
@@ -340,13 +340,13 @@ return spell.init{
      RPG.vitality = 1
      RPG.wisdom = 1
      RPG.luck = 1
-     
+
      storage.gamePut("smithing", {lvl = RPG.smithLvl, expToUp = RPG.smithToUp, exp = RPG.smithExp})
 
      storage.gamePut(stats, {str = RPG.strength, int = RPG.intelligence, dex = RPG.dexterity, vit = RPG.vitality, wis = RPG.wisdom, luc = RPG.luck, lvlT = RPG.lvlToUp, magS = RPG.magicStr, phyS = RPG.physicStr, fast = RPG.fast, sP = RPG.sPoints, spR = RPG.spRegen,magDef = RPG.magDef, class = RPG.class, subclass = RPG.subclass})
 	 storage.gamePut(tostring(hero:lvl()), {str = RPG.strength, int = RPG.intelligence, dex = RPG.dexterity, vit = RPG.vitality, wis = RPG.wisdom, luc = RPG.luck, lvlT = RPG.lvlToUp, magS = RPG.magicStr, phyS = RPG.physicStr, fast = RPG.fast, sP = RPG.sPoints, spR = RPG.spRegen,magDef = RPG.magDef, class = RPG.class, subclass = RPG.subclass, spells = Que.getMas("spelllist")})
     end
-    
+
     hero = RPD.Dungeon.hero
     if RPG.class == nil and hero:lvl() >= 5 then
      Add.statusWindowClass(dialog,states,index1)
@@ -358,7 +358,7 @@ return spell.init{
      end
    end
     hero:setSkillPoints(hero:getSkillPoints()-1)
-    
+
         return true
     end
 }

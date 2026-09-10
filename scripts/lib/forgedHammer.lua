@@ -20,7 +20,7 @@ local prevEnemy = ""
 forgedWeapon.makeWeapon = function()
     return{
     desc = function(self, item)
-        
+
         return {
             stackable     = false,
             upgradable    = true,
@@ -28,16 +28,16 @@ forgedWeapon.makeWeapon = function()
             imageFile = "items/forgedHammer.png",
             equipable = "weapon"
         }
-        
+
     end,
-    
-    
+
+
     info = function(self,item)
       hero = RPD.Dungeon.hero
       str = math.max(self.data.str -2*item:level(),1)
       maxDmg = RPG.smartInt(self.data.maxDmg +self.data.tier*item:level())
       minDmg = RPG.smartInt(math.min((self.data.minDmg +self.data.tier*item:level())*1.3,maxDmg))
-      
+
       local info = self.data.name..RPD.textById("WeaponInfo0")..self.data.tier..RPD.textById("WeaponInfo1")..minDmg.." — "..maxDmg..RPD.textById("WeaponInfo2")..str..RPD.textById("WeaponInfo3").."\n\n"..self.data.info
       if RPG.physStr() >= str then
         return info
@@ -45,58 +45,58 @@ forgedWeapon.makeWeapon = function()
         return info..RPD.textById("WeaponLimit")
       end
     end,
-    
-    
+
+
     image = function(self)
       return self.data.icon
     end,
-    
-    
+
+
     name = function(self)
       return self.data.name
     end,
-    
-    
+
+
     getVisualName = function()
       return "WarHammer"
     end,
-    
-    
+
+
     statsRequirementsSatisfied = function(self,item)
       str = math.max(self.data.str-2*item:level(),1)
       if str <= RPG.physStr() then
-        return true 
-      else 
+        return true
+      else
         return false
       end
     end,
-    
-    
+
+
     getAttackAnimationClass = function()
 	    return "HEAVY"
 	  end,
-   
-   
+
+
     slot = function(self, item, belongings)
         return RPD.Slots.weapon
     end,
-    
-    
+
+
     blockSlot = function(self)
         return "LEFT_HAND"
     end,
-    
-    
+
+
     activate = function(self,item,user)
       hero = RPD.Dungeon.hero
       if self.data.activationCount == 0 and user == hero then
           RPG.addStats(self.data.dstats,"StatsA")
-          RPG.increaseHtSp(self.data.dstats) 
+          RPG.increaseHtSp(self.data.dstats)
           self.data.activationCount = 1
       end
     end,
-    
-    
+
+
     deactivate = function(self,item)
         hero = RPD.Dungeon.hero
         if self.data.activationCount == 1 then
@@ -105,16 +105,16 @@ forgedWeapon.makeWeapon = function()
           RPG.decreaseHtSp(self.data.dstats)
         end
     end,
-	
-	
+
+
 	damageRoll = function(self,item,user)
       local hero = RPD.Dungeon.hero
       maxDmg = self.data.maxDmg +self.data.tier*item:level()
       minDmg = math.min(self.data.minDmg +self.data.tier*item:level()*1.3,maxDmg)
-      
+
       dmgRoll = math.random(minDmg,maxDmg)
       local d = self.data
-      local id = 
+      local id =
       {
         cut = 10,
         chop = 11,
@@ -123,71 +123,71 @@ forgedWeapon.makeWeapon = function()
       }
       dmgFrSt1 = d.addstats[id[d.element[1] or d.element]]
       dmgFrSt2 = d.addstats[id[d.element[2]]] or {0,dmgFrSt1[2]}
-      
+
         dmg = RPG.getDamage(user:getEnemy(),dmgRoll *((dmgFrSt1[2]+dmgFrSt2[2])/200 +1) + dmgFrSt1[1] +dmgFrSt2[1],self.data.type,self.data.element)
-        
+
         RPG.dmgText("phys",self.data.element,user:getEnemy())
-			
+
       return dmg,dmg
     end,
-    
-    postAttack = function(self,item,enemy) 
-      RPG.weaponOtherDmg(enemy,dmg,self.data.addstats) 
+
+    postAttack = function(self,item,enemy)
+      RPG.weaponOtherDmg(enemy,dmg,self.data.addstats)
       local chanceRoll = math.random(1,12)
-      if chanceRoll <= 4 +hits +self.data.rareScale and dmg > 0 then  
+      if chanceRoll <= 4 +hits +self.data.rareScale and dmg > 0 then
         hits = 0
         local headache = RPD.affectBuff(enemy,"Headache",4 +self.data.rareScale/2)
         headache:level(60 +self.data.rareScale*5)
         enemy:getSprite():emitter():burst( RPD.Sfx.ElmoParticle.FACTORY, 3 )
-        
+
       elseif prevEnemy == enemy or hits == 0 then
         hits = hits +1
-      else 
+      else
         hits = 1
       end
-      
+
       prevEnemy = enemy
     end,
-    
-    
+
+
     accuracyFactor = function(self,item,user)
       str = math.max(self.data.str -2*item:level(),1)
       return self.data.accuracy + RPG.itemStrBonus(str)*0.5
     end,
-    
-    
+
+
     attackDelayFactor = function(self,item,user)
       str = math.max(self.data.str -2*item:level(),1)
       return math.max(self.data.delay*1.5 -RPG.itemStrBonus(str)*0.75,0.25)
     end,
-    
-    
+
+
     typicalSTR = function(self,item,user)
 	  str = math.max(self.data.str -2*item:level(),1)
       return str
     end,
-	
-	
+
+
     requiredSTR = function(self,item,user)
       return str
     end,
-    
-    
+
+
     goodForMelee = function(self)
       return true
     end,
-    
-    
+
+
     range = function(self)
       return self.data.range +1
     end,
-		
+
 		price = function(self,item)
       mediumDmg = RPG.smartInt( (self.data.minDmg+self.data.maxDmg)/3 )
       return mediumDmg*(item:level()+1)*self.data.tier*10 +2^(self.data.tier-1)-4^math.max(self.data.tier-10,0)+50*(self.data.tier-1)*item:level() +RPG.conversionStatsToGold(self.data.dstats,self.data.addstats,self.data.delay,self.data.accuracy,self.data.range,"weapon")
     end
-    
-     
+
+
 }
 end
 return forgedWeapon

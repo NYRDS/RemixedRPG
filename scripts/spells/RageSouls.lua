@@ -44,7 +44,7 @@ return spell.init{
             castTime      = 1
         }
     end,
-    
+
     castOnCell = function(self, spell, chr, cell, caster)
     local level = RPD.Dungeon.level
     local hero = RPD.Dungeon.hero
@@ -52,7 +52,7 @@ return spell.init{
      RPD.glog(RPD.textById("LvlLimit"))
      return false
     end
-      
+
     Count = storage.gameGet(a) or {}
     if Count.lvl ~= nil then
      lvl = Count.lvl
@@ -65,7 +65,7 @@ return spell.init{
      expMax = 4
      storage.gamePut(a,{exp = exp, expMax = expMax, lvl = lvl})
     end
-    
+
     if exp == expMax then
        exp = 0
        expMax = expMax+5
@@ -73,11 +73,11 @@ return spell.init{
      else
        exp = exp+1
      end
-     
+
     local from = hero:getPos()
     local to = cell
-    local enName 
-    
+    local enName
+
     pos = RPD.Ballistica:cast(from,to,true,false,false)
     for i = 2, RPD.Ballistica.distance do
       enemy = RPD.Actor:findChar(RPD.Ballistica.trace[i])
@@ -88,7 +88,7 @@ return spell.init{
       end
       if enName == "BoneGolem_lvl1" or enName == "BoneGolem_lvl2" or enName == "BoneGolem_lvl3" then
         enemy:heal(math.ceil(RPG.magStr()*0.4 + 3*lvl),hero)
-        
+
         RPD.Sfx.CellEmitter:get(enemy:getPos()):burst(RPD.Sfx.Speck:factory(RPD.Sfx.Speck.HEALING ), 3)
       else
         if enemy and enemy ~= hero then
@@ -101,7 +101,7 @@ return spell.init{
         RPD.zapEffect(from, RPD.Ballistica.trace[i], "ragesouls_effect")
       end
     end
-    
+
      return true
    end
 }

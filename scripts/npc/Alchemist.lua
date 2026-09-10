@@ -1,7 +1,7 @@
 --
 --Created by Mongol
 -- VK: mongolinsult
--- 
+--
 
 
 local RPD = require "scripts/lib/commonClasses"
@@ -20,7 +20,7 @@ local data
 local hero
 
 local npc = "Alchemist"
-local questName = 
+local questName =
 {
 "Без трав, как без рук",
 "Что посеял, то пожнёшь"
@@ -70,15 +70,15 @@ return mob.init({
     end
     data = storage.gameGet(npc) or {}
     if quest.isGiven(questName[data.Quest]) == false and quest.isCompelete(questName[data.Quest]) == false then
-    
+
      Add.showQuestWindow(self,tostring(questText1[data.Quest]))
      local hero = RPD.Dungeon.hero
      quest.give(questName[data.Quest], hero, {kills={""}})
      RPD.Journal:add(self:name()..": "..questName[data.Quest])
      quest.debug(true)
-     
+
     else
-    
+
       need = needItems[data.Quest]
       sum = 0
       for i = 1, #need do
@@ -87,7 +87,7 @@ return mob.init({
           sum = sum +1
         end
       end
-      
+
       if sum == #need then
         for i = 1, #need do
           hero = RPD.Dungeon.hero
@@ -101,7 +101,7 @@ return mob.init({
         else
           RPD.glog("** Прости, но этого не достаточно")
       end
-      
+
       end
     end
 })

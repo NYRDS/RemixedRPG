@@ -28,12 +28,12 @@ return trap.init(
             if enemy then
               RPG.damage(enemy,math.ceil(RPG.physStr()*(0.1*Spell.BT)),"phys",{"fire","crush"})
               end
-              
+
               else
               if enemy then
               RPG.damage(enemy,math.ceil(RPG.physStr()*(0.15*Spell.BT)),"phys",{"fire","crush"})
               end
-              
+
             end
           end
         end

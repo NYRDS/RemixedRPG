@@ -28,12 +28,12 @@ return buff.init{
             info          = "ShadowDagger_BuffD",
         }
     end,
-    
+
     stealthBonus = function(self,buff)
         local Spell = storage.gameGet(a) or {}
         return (math.ceil(RPG.AllFast()*0.8) +5 +2*Spell.lvl)
     end,
-    
+
     attackProc = function(self,buff,enemy,damage)
      local Spell = storage.gameGet(a) or {}
      Spell.exp = Spell.exp+1
@@ -42,7 +42,7 @@ return buff.init{
       Spell.expMax = Spell.expMax+6
       Spell.lvl = Spell.lvl+1
      end
-     
+
      if buff.target:buffLevel("Invisibility") == 1 or state[enemy:getState():getTag()] or enemy:isParalysed() then
       RPG.damage(enemy,math.ceil(RPG.physStr()*0.35 +5 +6*Spell.lvl), type,elmnt)
      else

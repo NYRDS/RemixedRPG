@@ -75,14 +75,14 @@ return spell.init{
       RPD.zapEffect(pos, RPD.Dungeon.hero:getPos(), "soulabsorbing_effect")
       end
      end
-    end 
+    end
     if chars ~= 1 then
       exp = exp +1
     end
     RPD.removeBuff(hero,"FastSoulsMarks")
     local buff = RPD.affectBuff(hero,"FastSoulsMarks" ,lvl + chars/2)
     buff:level(math.max((chars + lvl)%2,1))
-    
+
     storage.gamePut(a,{exp = exp, expMax = expMax, lvl = lvl})
   return true
    end

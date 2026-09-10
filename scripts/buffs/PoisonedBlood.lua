@@ -21,26 +21,26 @@ return buff.init{
             info          = "PoisonedBloodD",
         }
     end,
-    
+
     charAct = function()
       RPD.BuffIndicator:refreshHero()
     end,
-    
-    
+
+
     name = function()
       return RPD.textById("PoisonedBloodN").."("..tostring(Spell.staks)..")"
     end,
-    
-    
+
+
     detach = function(self,buff)
     Spell = storage.gameGet(a) or {}
       local hero = RPD.Dungeon.hero
      hero:ht(hero:ht() +Spell.bp)
-     
+
      storage.gamePut(a,{exp = Spell.exp, expMax = Spell.expMax, lvl = Spell.lvl, bp = Spell.bp, staks = 0})
     end,
-    
-    
+
+
     icon = function()
       Spell = storage.gameGet(a) or {}
         if tonumber(Spell.staks) == 5 then

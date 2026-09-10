@@ -15,7 +15,7 @@ return buff.init{
             name          = "SlownessN",
             info          = "SlownessD",
         }
-    end,   
+    end,
     speedMultiplier = function(self, buff)
         return RPG.baseSpeed() -buff:level()*0.05
     end

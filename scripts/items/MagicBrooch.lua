@@ -1,7 +1,7 @@
 --
 -- Created by Mongol
 -- VK: mongolinsult
--- 
+--
 
 local RPD = require "scripts/lib/commonClasses"
 
@@ -17,7 +17,7 @@ local tier = 2
 
 return item.init{
     desc  = function (self, item)
-      
+
         return {
             imageFile     = "rpgitems.png",
             image         = 64,
@@ -32,8 +32,8 @@ return item.init{
             isArtifact    = true
         }
     end,
-    
-    
+
+
     activate = function(self, item)
       local hero = RPD.Dungeon.hero
       if hero then
@@ -41,13 +41,13 @@ return item.init{
       RPD.permanentBuff(hero, "MagicAbsorb"):level(item:level())
       end
     end,
-    
-    
+
+
     deactivate = function(self, item)
       local hero = RPD.Dungeon.hero
       RPD.removeBuff(hero, "MagicAbsorb")
     end,
-    
+
 
     isIdentified = function(self)
       return false

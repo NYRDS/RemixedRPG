@@ -15,11 +15,11 @@ return buff.init{
             info          = "Headache_BuffD",
         }
     end,
-    
+
     charAct = function(self,buff)
       local diceRoll = math.random(1,100)
       local chance = buff:level()
-      if buff.target:isBoss() then 
+      if buff.target:isBoss() then
         chance = chance /2
       end
       if diceRoll <= chance then

@@ -60,14 +60,14 @@ return spell.init{
     end
  local pos = RPD.Ballistica:cast(RPD.Dungeon.hero:getPos(),cell,true,true,true)
  local enemy = RPD.Actor:findChar(pos)
- 
+
  RPD.zapEffect(RPD.Dungeon.hero:getPos(),pos,"magic_missile")
- 
+
  if RPG.subclass == "BattleMage" then
    RPD.removeBuff(hero,"ResidualEffect_Buff")
    local Buff = RPD.affectBuff(hero, "ResidualEffect_Buff", 4):level(0)
  end
- 
+
  if enemy and enemy ~= RPD.Dungeon.hero then
   RPG.damage(enemy,RPG.smartInt(7+RPG.magStr()*0.25+2*lvl-RPG.distance(pos) ),type,elmnt)
   return true

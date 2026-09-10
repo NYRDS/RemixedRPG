@@ -1,7 +1,7 @@
 --
 --Created by Mongol
 -- VK: mongolinsult
--- 
+--
 
 local RPD = require "scripts/lib/commonClasses"
 
@@ -28,10 +28,10 @@ return item.init{
             upgradable = false,
             stackable = true,
             defaultAction = act
-            
+
         }
     end,
-  
+
 actions = function(self, item, hero)
 return {act}
 end,
@@ -46,6 +46,6 @@ end,
 .backpack)
         hero:spend(1)
       end
-      
+
       end
 }

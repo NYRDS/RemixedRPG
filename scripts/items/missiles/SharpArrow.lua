@@ -15,16 +15,16 @@ return item.init {
             price = 2,
         }
     end,
-  dmg = function() 
+  dmg = function()
       return {4,8}
     end,
     buff = function()
       return
     end,
-    isFliesStraight = function() 
+    isFliesStraight = function()
       return true
     end,
-  	bag = function() 
+  	bag = function()
   		return "Quiver"
   	end
 }

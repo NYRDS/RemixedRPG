@@ -33,5 +33,5 @@ defenceProc = function(self, buff, enemy, damage)
         return damage
       end
     end
-    
+
 }
