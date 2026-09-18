@@ -53,10 +53,10 @@ RPG = {
     Image = luajava.bindClass("com.watabou.noosa.Image"),
 
     Buffs = {
-        Bleeding = luajava.bindClass("com.watabou.pixeldungeon.actors.buffs.Bleeding"),
-        Terror = luajava.bindClass("com.watabou.pixeldungeon.actors.buffs.Terror"),
-        Shadows = luajava.bindClass("com.watabou.pixeldungeon.actors.buffs.Shadows"),
-        Amok = luajava.bindClass("com.watabou.pixeldungeon.actors.buffs.Amok")
+        Bleeding = RPD.Buffs.Bleeding,
+        Terror = RPD.Buffs.Terror,
+        Shadows = RPD.Buffs.Shadows,
+        Amok = RPD.Buffs.Amok
     },
 
     statsName = {
