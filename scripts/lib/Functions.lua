@@ -912,6 +912,10 @@ RPG = {
 
 
     getElementCoef = function(element)
+        if element == nil then
+            return { 0.5, 0 }
+        end
+
         local percent = 0.5
         local fixed = 0
 
